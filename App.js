@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, View} from 'react-native';
+import {FlatList, SafeAreaView, StatusBar, StyleSheet, View} from 'react-native';
 import {Navbar} from "./src/components/Navbar";
 import {useState} from "react";
 import {ToDo} from "./src/components/ToDo";
@@ -8,12 +8,13 @@ export default function App() {
     const [id, setId] = useState(0);
     const [toDos, setToDos] = useState([]);
 
-    const addToDo = title => {
+    const addToDo = (title, category, date) => {
         setId(id => ++id);
         setToDos(toDos => [...toDos, {
             id: id.toString(),
-            date: new Date(Date.now()).toLocaleDateString(),
-            title
+            date: date,
+            title: title,
+            category: category
         }]);
     }
 
@@ -26,12 +27,12 @@ export default function App() {
             <Navbar/>
             <View style={styles.container}>
                 <AddToDoModal onSubmit={addToDo}/>
-                <FlatList
-                    style={styles.toDoList}
-                    keyExtractor={item => item.id.toString()}
-                    data={toDos}
-                    renderItem={({item}) => <ToDo toDo={item} onRemove={removeToDo}/>}/>
             </View>
+            <FlatList
+                style={styles.toDoList}
+                keyExtractor={item => item.id.toString()}
+                data={toDos}
+                renderItem={({item}) => <ToDo toDo={item} onRemove={removeToDo}/>}/>
         </View>
     );
 }
@@ -41,6 +42,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
     }, toDoList: {
         paddingHorizontal: 30,
-        paddingVertical: 30
+        paddingVertical: 30,
+        overflow: 'hidden'
     }
 });
