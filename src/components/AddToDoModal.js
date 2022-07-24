@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Alert, Modal, StyleSheet, Text, Pressable, View, TextInput, Image} from 'react-native';
+import {Alert, Modal, StyleSheet, Text, Pressable, View, TextInput, Image, TouchableOpacity} from 'react-native';
 import {Picker} from "@react-native-picker/picker";
 import RNDateTimePicker from "@react-native-community/datetimepicker";
 
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         justifyContent: 'center',
         textShadowColor: 'rgba(0, 0, 0, 0.75)',
-        textShadowOffset: { width: 1, height: 1 },
+        textShadowOffset: {width: 1, height: 1},
         textShadowRadius: 7,
     },
     modalText: {

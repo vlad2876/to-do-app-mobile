@@ -23,17 +23,17 @@ export default function App() {
     }
 
     return (
-        <View>
-            <Navbar/>
-            <View style={styles.container}>
-                <AddToDoModal onSubmit={addToDo}/>
-            </View>
-            <FlatList
-                style={styles.toDoList}
-                keyExtractor={item => item.id.toString()}
-                data={toDos}
-                renderItem={({item}) => <ToDo toDo={item} onRemove={removeToDo}/>}/>
-        </View>
+        <SafeAreaView style={styles.safeArea}>
+                <Navbar/>
+                <View style={styles.container}>
+                    <AddToDoModal onSubmit={addToDo}/>
+                </View>
+                <FlatList
+                    style={styles.toDoList}
+                    keyExtractor={item => item.id.toString()}
+                    data={toDos}
+                    renderItem={({item}) => <ToDo category={item.category} toDo={item} onRemove={removeToDo}/>}/>
+        </SafeAreaView>
     );
 }
 
@@ -42,7 +42,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
     }, toDoList: {
         paddingHorizontal: 30,
-        paddingVertical: 30,
-        overflow: 'hidden'
+        paddingVertical: 30
+    }, safeArea: {
+        flex: 1,
+        paddingTop: StatusBar.currentHeight,
     }
 });
