@@ -91,11 +91,11 @@ export const AddToDoModal = ({onSubmit}) => {
                     </View>
                 </View>
             </Modal>
-            <Pressable
-                style={[styles.button, styles.buttonOpen]}
-                onPress={() => setModalVisible(true)}>
-                <Text style={styles.textStyle}>Добавить дело</Text>
-            </Pressable>
+                <Pressable
+                    style={[styles.button, styles.buttonOpen]}
+                    onPress={() => setModalVisible(true)}>
+                    <Text style={styles.textStyle}>Добавить дело</Text>
+                </Pressable>
         </View>
     );
 };
@@ -137,17 +137,26 @@ const styles = StyleSheet.create({
     buttonOpen: {
         backgroundColor: '#96F5B2',
         height: 50,
-        width: 100
+        width: 100,
+        borderWidth: 0.5,
+        borderColor: 'black'
     },
     addButton: {
         padding: 10,
         backgroundColor: '#96F5B2',
+        justifyContent: 'center',
+        borderWidth: 0.5,
+        borderColor: 'black',
+        minWidth: 100
     },
     textStyle: {
         color: 'white',
         fontWeight: 'bold',
         textAlign: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowOffset: { width: 1, height: 1 },
+        textShadowRadius: 7,
     },
     modalText: {
         marginBottom: 15,

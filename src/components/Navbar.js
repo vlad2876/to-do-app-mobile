@@ -17,9 +17,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'flex-end',
         backgroundColor: '#A2E3C3',
+        borderBottomWidth: 0.5,
+        borderBottomColor: 'black'
     }, title: {
+        textAlign: 'center',
+        minWidth: 100,
         fontSize: 30,
         color: 'white',
-        paddingBottom: 10
+        paddingBottom: 10,
+        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowOffset: { width: 2, height: 2 },
+        textShadowRadius: 10,
     }
 });
